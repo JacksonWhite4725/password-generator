@@ -32,10 +32,57 @@ var generatePassword = function() {
   upperCaseValues = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   numericValues = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
   specialValues = [" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
-
+  passwordValues = []
   // Use if-else statement to confirm which values to use, then combine arrays marked true
+  if (passwordLowerCase && passwordUpperCase && passwordNumeric && passwordSpecialCharacter) {
+    passwordValues = passwordValues.concat(lowerCaseValues, upperCaseValues, numericValues, specialValues);
+    console.log(passwordValues); // CHECK
+  } else if (passwordLowerCase && passwordUpperCase && passwordNumeric) {
+    passwordValues = passwordValues.concat(lowerCaseValues, upperCaseValues, numericValues);
+    console.log(passwordValues); // CHECK
+  } else if (passwordLowerCase && passwordNumeric && passwordSpecialCharacter) {
+    passwordValues = passwordValues.concat(lowerCaseValues, numericValues, specialValues);
+    console.log(passwordValues); // CHECK
+  } else if (passwordLowerCase && passwordUpperCase && passwordSpecialCharacter) {
+    passwordValues = passwordValues.concat(lowerCaseValues, upperCaseValues, specialValues);
+    console.log(passwordValues); // CHECK
+  } else if (passwordUpperCase && passwordNumeric && passwordSpecialCharacter) {
+    passwordValues = passwordValues.concat(upperCaseValues, numericValues, specialValues);
+    console.log(passwordValues); // CHECK
+  } else if (passwordLowerCase && passwordUpperCase) {
+    passwordValues = passwordValues.concat(lowerCaseValues, upperCaseValues);
+    console.log(passwordValues); // CHECK
+  } else if (passwordLowerCase && passwordNumeric) {
+    passwordValues = passwordValues.concat(lowerCaseValues, numericValues);
+    console.log(passwordValues); // CHECK
+  } else if (passwordLowerCase && passwordSpecialCharacter) {
+    passwordValues = passwordValues.concat(lowerCaseValues, specialValues);
+    console.log(passwordValues); // CHECK
+  } else if (passwordUpperCase && passwordNumeric) {
+    passwordValues = passwordValues.concat(upperCaseValues, numericValues);
+    console.log(passwordValues); // CHECK
+  } else if (passwordUpperCase && passwordSpecialCharacter) {
+    passwordValues = passwordValues.concat(upperCaseValues, specialValues);
+    console.log(passwordValues); // CHECK
+  } else if (passwordNumeric && passwordSpecialCharacter) {
+    passwordValues = passwordValues.concat(numericValues, specialValues);
+    console.log(passwordValues); // CHECK
+  } else if (passwordLowerCase) {
+    passwordValues = passwordValues.concat(lowerCaseValues);
+    console.log(passwordValues); // CHECK
+  } else if (passwordUpperCase) {
+    passwordValues = passwordValues.concat(upperCaseValues);
+    console.log(passwordValues); // CHECK
+  } else if (passwordNumeric) {
+    passwordValues = passwordValues.concat(numericValues);
+    console.log(passwordValues); // CHECK
+  } else {
+    passwordValues = passwordValues.concat(specialValues);
+    console.log(passwordValues); // CHECK
+  }
 
   // Use for loop to iterate over passwordLength and randomly add characters indexed from the combined array into a new password
+
 
   // Return the password
 }
