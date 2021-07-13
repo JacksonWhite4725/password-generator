@@ -28,11 +28,11 @@ var generatePassword = function() {
   }
 
   // Create arrays of values for each criteria to act as libraries
-  lowerCaseValues = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  upperCaseValues = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  numericValues = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-  specialValues = [" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
-  passwordValues = []
+  var lowerCaseValues = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  var upperCaseValues = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  var numericValues = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+  var specialValues = [" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+  var passwordValues = []
   // Use if-else statement to confirm which values to use, then combine arrays marked true
   if (passwordLowerCase && passwordUpperCase && passwordNumeric && passwordSpecialCharacter) {
     passwordValues = passwordValues.concat(lowerCaseValues, upperCaseValues, numericValues, specialValues);
@@ -82,9 +82,14 @@ var generatePassword = function() {
   }
 
   // Use for loop to iterate over passwordLength and randomly add characters indexed from the combined array into a new password
-
+  var newPassword = "";
+  for (var i = 0; i < passwordLength; i++) {
+    var randomNum = Math.floor(Math.random() * passwordValues.length);
+    newPassword = newPassword.concat(passwordValues[randomNum]);
+  }
 
   // Return the password
+  return newPassword;
 }
 
 
