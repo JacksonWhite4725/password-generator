@@ -20,6 +20,12 @@ var generatePassword = function() {
   var passwordSpecialCharacter = confirm("Should the password use special characters? (Press 'Cancel' for no or 'Okay' for yes):");
 
   // Check to make sure at least one criteria was checked
+  if (passwordLowerCase || passwordUpperCase || passwordNumeric || passwordSpecialCharacter) {
+    alert("Thank you for your selection. Now generating your password. Press 'Okay' when ready.");
+  } else {
+    alert("You need to select at least one criteria. Please restart and try again.");
+    return null;
+  }
 
   // Create arrays of values for each criteria to act as libraries
 
